@@ -7,7 +7,6 @@ function [ wik ] = calcWik( numberOfGauss, numbOfSample ,weightOfEachGauss , pdf
 %        (mean(t) , sigma(t) , weight(t))    
 %
 
-
 wik = zeros(numberOfGauss, numbOfSample);
 
 for i=1:numbOfSample
@@ -16,4 +15,3 @@ for i=1:numbOfSample
     end
 wik(:,i)=wik(:,i) / sum(wik(:,i));
 end
-
