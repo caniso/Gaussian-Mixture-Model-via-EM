@@ -3,7 +3,7 @@ clearvars,
 close all;
 
 %%%
-% Author : ›smail can B¸y¸ktepe
+% Author : √ùsmail can B√ºy√ºktepe
 % Date: 10.01.2019
 % Institute : Gebze Technical University
 % E-mail: ismailcanbuyuktepe@gmail.com
@@ -20,8 +20,6 @@ close all;
 % carried out. It was tested on 400 data using the parameters calculated 
 % by training data and calculated the classification success rate.
 
-
-
 folderName = '..\handlers';                             % Don't change
 folderNameOfFunctions = '..\handlers\functions';        % Don't change
 folderNameOfDataSets = '..\handlers\datasets';          % Don't change
@@ -34,18 +32,15 @@ dataSet = load('ClassificationData1.mat');
 % The distribution of class-1 and class-2 data is shown and the number of
 % gauss was determined.
 
-
 subplot(2,1,1),
 plot(dataSet.class1_data(1,1:1800),dataSet.class1_data(2,1:1800),'.','Color','red');
 title('Distribution of class-1 data'),
 xlabel('x1'); ylabel('y1');
 
-
 subplot(2,1,2);
 plot(dataSet.class2_data(1,1:1800),dataSet.class2_data(2,1:1800),'.','Color','blue');
 title('Distribution of class-2 data'),
 xlabel('x2'); ylabel('y2');
-
 
 %% Values of initial parameters are determined for class-1.
 dataTranspose =dataSet.class1_data(:,1:1800)';
@@ -64,7 +59,6 @@ meanClass1=[ mu_x1_init, mu_x2_init ,mu_x3_init ; mu_y_init, mu_y_init, mu_y_ini
 
 [rowClass1,columnClass1]=size(dataTranspose);
 numberOfGaussForClass1 =3;
-
 
 %%  Values of initial parameters are determined for class-1.
 dataTransposeForClass2 = dataSet.class2_data(:,1:1800)';
@@ -114,8 +108,7 @@ for i=1:numberOfIteration
  [covariance] = calcCovariance(Nk_Class1, wik_Class1, dataSet.class1_data(:,1:1800), ...
                             meanClass1, rowClass1, numberOfGaussForClass1 );
  [covariance2] = calcCovariance(Nk_Class2, wik_Class2, dataSet.class2_data(:,1:1800), ...
-                            meanClass2, rowClass2, numberOfGaussForClass2);
-       
+                            meanClass2, rowClass2, numberOfGaussForClass2);      
 end
 
 %% We calculate the discriminant function values of the classes we model as GMM.(For Training )
